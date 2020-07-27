@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="data\source\framework\Chrono.cpp">
+      <Filter>Game\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\framework\RichText.cpp">
+      <Filter>Game\framework</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\content\UIObjects.cpp">
+      <Filter>Game\content</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\scenes\Scenes.cpp">
+      <Filter>Game\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\ui\Fonts.cpp">
+      <Filter>Game\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\entities\enemies\Enemy.cpp">
+      <Filter>Game\entities\enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\entities\buildings\Building.cpp">
+      <Filter>Game\entities\buildings</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\content\Enemies.cpp">
+      <Filter>Game\content</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\entities\buildings\Productive.cpp">
+      <Filter>Game\entities\buildings</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\entities\buildings\Turret.cpp">
+      <Filter>Game\entities\buildings</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\entities\buildings\Optimizer.cpp">
+      <Filter>Game\entities\buildings</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\entities\buildings\Defensive.cpp">
+      <Filter>Game\entities\buildings</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\content\Buildings.cpp">
+      <Filter>Game\content</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\entities\bullets\Bullet.cpp">
+      <Filter>Game\entities\bullets</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\content\Bullets.cpp">
+      <Filter>Game\content</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\scenes\MainMenu.cpp">
+      <Filter>Game\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\graphics\MainMenuRenderer.cpp">
+      <Filter>Game\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\entities\effects\Effects.cpp">
+      <Filter>Game\entities\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\ui\View.cpp">
+      <Filter>Game\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\ui\Fader.cpp">
+      <Filter>Game\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\graphics\ToolsMenuRenderer.cpp">
+      <Filter>Game\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\scenes\ToolsMenu.cpp">
+      <Filter>Game\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\Variables.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\graphics\OptionsMenuRenderer.cpp">
+      <Filter>Game\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\scenes\OptionsMenu.cpp">
+      <Filter>Game\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\io\JsonIO.cpp">
+      <Filter>Game\io</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\graphics\soloMenuRenderer.cpp">
+      <Filter>Game\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\scenes\SoloMenu.cpp">
+      <Filter>Game\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\map\TileMap.cpp">
+      <Filter>Game\map</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\map\Tile.cpp">
+      <Filter>Game\map</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\map\Tiles.cpp">
+      <Filter>Game\map</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\graphics\MapRenderer.cpp">
+      <Filter>Game\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\scenes\Map.cpp">
+      <Filter>Game\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\game\Rules.cpp">
+      <Filter>Game\game</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\game\Gamemodes.cpp">
+      <Filter>Game\game</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\game\Statistics.cpp">
+      <Filter>Game\game</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\game\EnemiesSpawning.cpp">
+      <Filter>Game\game</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\game\Waves.cpp">
+      <Filter>Game\game</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\game\WaveSystem.cpp">
+      <Filter>Game\game</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\graphics\EditorRenderer.cpp">
+      <Filter>Game\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\scenes\Editor.cpp">
+      <Filter>Game\scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\editor\EditorTile.cpp">
+      <Filter>Game\editor</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\editor\EditorMap.cpp">
+      <Filter>Game\editor</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\io\MapIO.cpp">
+      <Filter>Game\io</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Game">
+      <UniqueIdentifier>{1db475de-3b23-4bdb-9f72-743af426f825}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\audio">
+      <UniqueIdentifier>{ea871bb5-2a4e-4f75-9891-6b2e1bd14d94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\ui">
+      <UniqueIdentifier>{e5417fc8-0d9e-40f0-8bf3-e46bd60b63e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\io">
+      <UniqueIdentifier>{d98ac99d-f286-49d0-b887-99428fb058e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\framework">
+      <UniqueIdentifier>{efd36f77-a636-4ceb-be5d-46ccf7025eac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\map">
+      <UniqueIdentifier>{12c22c1a-de5c-4681-a8d5-3820243f32c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\scenes">
+      <UniqueIdentifier>{9d4f15ae-ac90-402f-81c2-cbc1a5f45092}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\entities">
+      <UniqueIdentifier>{8c4d7401-ea1f-4b00-be59-cef8b1a4c777}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\content">
+      <UniqueIdentifier>{bcbe9fdc-e898-4536-bcf3-794e0ce3caba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\entities\enemies">
+      <UniqueIdentifier>{ced31446-50c0-4784-a300-380539d5ec90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\entities\buildings">
+      <UniqueIdentifier>{5bfe1f2c-6731-4d22-8aea-0db1ddbd42b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\entities\bullets">
+      <UniqueIdentifier>{de14a574-4ad7-42eb-8b83-ae2069c3a5d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\graphics">
+      <UniqueIdentifier>{074a3f92-a14d-4b88-9da5-fbfc96bfedaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\entities\effects">
+      <UniqueIdentifier>{ca5ae66e-dfef-4f8f-8da5-4ea7d47cbfe0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\game">
+      <UniqueIdentifier>{b4079ea6-18a7-4d5d-8c02-ba1a6271f0b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\editor">
+      <UniqueIdentifier>{1f8532dc-dc5e-4c12-82c4-8e61d83f084c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="data\source\framework\Chrono.h">
+      <Filter>Game\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\framework\DataTypes.h">
+      <Filter>Game\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\framework\RichText.hpp">
+      <Filter>Game\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\content\UIObjects.h">
+      <Filter>Game\content</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\scenes\Scenes.h">
+      <Filter>Game\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\ui\Fonts.h">
+      <Filter>Game\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\entities\enemies\Enemy.h">
+      <Filter>Game\entities\enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\entities\buildings\Building.h">
+      <Filter>Game\entities\buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\content\Enemies.h">
+      <Filter>Game\content</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\entities\buildings\Productive.h">
+      <Filter>Game\entities\buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\entities\buildings\Turret.h">
+      <Filter>Game\entities\buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\entities\buildings\Optimizer.h">
+      <Filter>Game\entities\buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\entities\buildings\Defensive.h">
+      <Filter>Game\entities\buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\content\Buildings.h">
+      <Filter>Game\content</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\entities\bullets\Bullet.h">
+      <Filter>Game\entities\bullets</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\content\Bullets.h">
+      <Filter>Game\content</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\scenes\MainMenu.h">
+      <Filter>Game\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\graphics\MainMenuRenderer.h">
+      <Filter>Game\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\entities\effects\Effects.h">
+      <Filter>Game\entities\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\ui\View.h">
+      <Filter>Game\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\ui\Fader.h">
+      <Filter>Game\ui</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\graphics\ToolsMenuRenderer.h">
+      <Filter>Game\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\scenes\ToolsMenu.h">
+      <Filter>Game\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\Variables.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\graphics\OptionsMenuRenderer.h">
+      <Filter>Game\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\scenes\OptionsMenu.h">
+      <Filter>Game\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\io\JsonIO.h">
+      <Filter>Game\io</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\graphics\soloMenuRenderer.h">
+      <Filter>Game\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\scenes\SoloMenu.h">
+      <Filter>Game\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\map\TileMap.h">
+      <Filter>Game\map</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\map\Tile.h">
+      <Filter>Game\map</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\map\Tiles.h">
+      <Filter>Game\map</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\graphics\MapRenderer.h">
+      <Filter>Game\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\scenes\Map.h">
+      <Filter>Game\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\game\Rules.h">
+      <Filter>Game\game</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\game\Gamemodes.h">
+      <Filter>Game\game</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\game\Statistics.h">
+      <Filter>Game\game</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\game\EnemiesSpawning.h">
+      <Filter>Game\game</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\game\Waves.h">
+      <Filter>Game\game</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\game\WaveSystem.h">
+      <Filter>Game\game</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\graphics\EditorRenderer.h">
+      <Filter>Game\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\scenes\Editor.h">
+      <Filter>Game\scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\editor\EditorTile.h">
+      <Filter>Game\editor</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\editor\EditorMap.h">
+      <Filter>Game\editor</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\io\MapIO.h">
+      <Filter>Game\io</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

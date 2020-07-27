@@ -1,0 +1,7 @@
+{
+  "enemyID": 1,
+  "enemyScalling": 1,
+  "initAmount": 1,
+  "maxAmount": 100,
+  "spacingTime": 0.5
+}

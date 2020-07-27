@@ -1,0 +1,7 @@
+CodeWarfare, version0.0.5
+Log file
+
+
+
+0 warnings
+0 errors

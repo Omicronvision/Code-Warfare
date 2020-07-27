@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{cb687adc-a739-43d2-8be2-c9c000eb043e}</ProjectGuid>
+    <RootNamespace>CodeWarfare</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>SFML_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\minic\Desktop\SFML\SFML-2.5.1\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\minic\Desktop\SFML\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-s-d.lib;sfml-window-s-d.lib;sfml-system-s-d.lib;sfml-audio-s-d.lib;flac.lib;freetype.lib;ogg.lib;openal32.lib;opengl32.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;winmm.lib;gdi32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>SFML_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\minic\Desktop\SFML\SFML-2.5.1\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\minic\Desktop\SFML\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;sfml-audio-s.lib;flac.lib;freetype.lib;ogg.lib;openal32.lib;opengl32.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;winmm.lib;gdi32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>SFML_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Enchant3d\Desktop\Programming\SFML-2.5.1\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\Enchant3d\Desktop\Programming\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-audio-s-d.lib;sfml-graphics-s-d.lib;sfml-network-s-d.lib;sfml-system-s-d.lib;sfml-window-s-d.lib;flac.lib;freetype.lib;ogg.lib;openal32.lib;opengl32.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;winmm.lib;gdi32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>SFML_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Enchant3d\Desktop\Programming\SFML-2.5.1\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\Enchant3d\Desktop\Programming\SFML-2.5.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-audio-s.lib;sfml-graphics-s.lib;sfml-network-s.lib;sfml-system-s.lib;sfml-window-s.lib;flac.lib;freetype.lib;ogg.lib;openal32.lib;opengl32.lib;vorbis.lib;vorbisenc.lib;vorbisfile.lib;winmm.lib;gdi32.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="data\source\content\Buildings.cpp" />
+    <ClCompile Include="data\source\content\Bullets.cpp" />
+    <ClCompile Include="data\source\content\Enemies.cpp" />
+    <ClCompile Include="data\source\content\UIObjects.cpp" />
+    <ClCompile Include="data\source\editor\EditorMap.cpp" />
+    <ClCompile Include="data\source\editor\EditorTile.cpp" />
+    <ClCompile Include="data\source\entities\buildings\Building.cpp" />
+    <ClCompile Include="data\source\entities\buildings\Defensive.cpp" />
+    <ClCompile Include="data\source\entities\buildings\Optimizer.cpp" />
+    <ClCompile Include="data\source\entities\buildings\Productive.cpp" />
+    <ClCompile Include="data\source\entities\buildings\Turret.cpp" />
+    <ClCompile Include="data\source\entities\bullets\Bullet.cpp" />
+    <ClCompile Include="data\source\entities\effects\Effects.cpp" />
+    <ClCompile Include="data\source\entities\enemies\Enemy.cpp" />
+    <ClCompile Include="data\source\framework\Chrono.cpp" />
+    <ClCompile Include="data\source\framework\RichText.cpp" />
+    <ClCompile Include="data\source\Game.cpp" />
+    <ClCompile Include="data\source\game\EnemiesSpawning.cpp" />
+    <ClCompile Include="data\source\game\Gamemodes.cpp" />
+    <ClCompile Include="data\source\game\Rules.cpp" />
+    <ClCompile Include="data\source\game\Statistics.cpp" />
+    <ClCompile Include="data\source\game\Waves.cpp" />
+    <ClCompile Include="data\source\game\WaveSystem.cpp" />
+    <ClCompile Include="data\source\graphics\EditorRenderer.cpp" />
+    <ClCompile Include="data\source\graphics\MainMenuRenderer.cpp" />
+    <ClCompile Include="data\source\graphics\MapRenderer.cpp" />
+    <ClCompile Include="data\source\graphics\OptionsMenuRenderer.cpp" />
+    <ClCompile Include="data\source\graphics\soloMenuRenderer.cpp" />
+    <ClCompile Include="data\source\graphics\ToolsMenuRenderer.cpp" />
+    <ClCompile Include="data\source\io\JsonIO.cpp" />
+    <ClCompile Include="data\source\io\MapIO.cpp" />
+    <ClCompile Include="data\source\map\Tile.cpp" />
+    <ClCompile Include="data\source\map\TileMap.cpp" />
+    <ClCompile Include="data\source\map\Tiles.cpp" />
+    <ClCompile Include="data\source\scenes\Editor.cpp" />
+    <ClCompile Include="data\source\scenes\MainMenu.cpp" />
+    <ClCompile Include="data\source\scenes\Map.cpp" />
+    <ClCompile Include="data\source\scenes\OptionsMenu.cpp" />
+    <ClCompile Include="data\source\scenes\Scenes.cpp" />
+    <ClCompile Include="data\source\scenes\SoloMenu.cpp" />
+    <ClCompile Include="data\source\scenes\ToolsMenu.cpp" />
+    <ClCompile Include="data\source\ui\Fader.cpp" />
+    <ClCompile Include="data\source\ui\Fonts.cpp" />
+    <ClCompile Include="data\source\ui\View.cpp" />
+    <ClCompile Include="data\source\Variables.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="data\source\content\Buildings.h" />
+    <ClInclude Include="data\source\content\Bullets.h" />
+    <ClInclude Include="data\source\content\Enemies.h" />
+    <ClInclude Include="data\source\content\UIObjects.h" />
+    <ClInclude Include="data\source\editor\EditorMap.h" />
+    <ClInclude Include="data\source\editor\EditorTile.h" />
+    <ClInclude Include="data\source\entities\buildings\Building.h" />
+    <ClInclude Include="data\source\entities\buildings\Defensive.h" />
+    <ClInclude Include="data\source\entities\buildings\Optimizer.h" />
+    <ClInclude Include="data\source\entities\buildings\Productive.h" />
+    <ClInclude Include="data\source\entities\buildings\Turret.h" />
+    <ClInclude Include="data\source\entities\bullets\Bullet.h" />
+    <ClInclude Include="data\source\entities\effects\Effects.h" />
+    <ClInclude Include="data\source\entities\enemies\Enemy.h" />
+    <ClInclude Include="data\source\framework\Chrono.h" />
+    <ClInclude Include="data\source\framework\DataTypes.h" />
+    <ClInclude Include="data\source\framework\RichText.hpp" />
+    <ClInclude Include="data\source\Game.h" />
+    <ClInclude Include="data\source\game\EnemiesSpawning.h" />
+    <ClInclude Include="data\source\game\Gamemodes.h" />
+    <ClInclude Include="data\source\game\Rules.h" />
+    <ClInclude Include="data\source\game\Statistics.h" />
+    <ClInclude Include="data\source\game\Waves.h" />
+    <ClInclude Include="data\source\game\WaveSystem.h" />
+    <ClInclude Include="data\source\graphics\EditorRenderer.h" />
+    <ClInclude Include="data\source\graphics\MainMenuRenderer.h" />
+    <ClInclude Include="data\source\graphics\MapRenderer.h" />
+    <ClInclude Include="data\source\graphics\OptionsMenuRenderer.h" />
+    <ClInclude Include="data\source\graphics\soloMenuRenderer.h" />
+    <ClInclude Include="data\source\graphics\ToolsMenuRenderer.h" />
+    <ClInclude Include="data\source\io\JsonIO.h" />
+    <ClInclude Include="data\source\io\MapIO.h" />
+    <ClInclude Include="data\source\map\Tile.h" />
+    <ClInclude Include="data\source\map\TileMap.h" />
+    <ClInclude Include="data\source\map\Tiles.h" />
+    <ClInclude Include="data\source\scenes\Editor.h" />
+    <ClInclude Include="data\source\scenes\MainMenu.h" />
+    <ClInclude Include="data\source\scenes\Map.h" />
+    <ClInclude Include="data\source\scenes\OptionsMenu.h" />
+    <ClInclude Include="data\source\scenes\Scenes.h" />
+    <ClInclude Include="data\source\scenes\SoloMenu.h" />
+    <ClInclude Include="data\source\scenes\ToolsMenu.h" />
+    <ClInclude Include="data\source\ui\Fader.h" />
+    <ClInclude Include="data\source\ui\Fonts.h" />
+    <ClInclude Include="data\source\ui\View.h" />
+    <ClInclude Include="data\source\Variables.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

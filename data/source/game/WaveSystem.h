@@ -15,8 +15,6 @@ public:
 
 	unsigned int waveNumber = 0;
 	float waveTime;
-
-private:
 	Chrono waveChrono;
 };
 

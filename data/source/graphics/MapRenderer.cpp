@@ -19,6 +19,7 @@ m1(sf::Color::Black, sf::Color::Yellow, 2, sf::Vector2f(300, 80)),
 m2(sf::Color::Black, sf::Color::Yellow, 2, sf::Vector2f(300, 80)),
 pauseBg(sf::Color(0, 0, 0, 100), sf::Vector2f(2000, 2000)),
 infoMenu(sf::Color::Black, sf::Color::Blue, 2, sf::Vector2f(200, 400)),
+selectedTile(sf::Color(255, 255, 255, 80), sf::Vector2f(50, 50)),
 Tcategory("data/graphics/icons/build-menu-icon.png", true, false),
 T1("data/graphics/icons/greencoin.png", true, false),
 T2("data/graphics/icons/electronic-piece.png", true, false),
@@ -61,7 +62,7 @@ MapRenderer::~MapRenderer()
 
 }
 
-void MapRenderer::setPosition(UInt32 x, UInt32 y, UInt32 width, UInt32 height)
+void MapRenderer::setPosition(Int32 x, Int32 y, Int32 width, Int32 height)
 {
 	buildMenu.rectform.setPosition(sf::Vector2f(x + 10, y + 10));
 	category.setPosition(sf::Vector2f(x + 10, y + 10));
@@ -86,6 +87,7 @@ void MapRenderer::setPosition(UInt32 x, UInt32 y, UInt32 width, UInt32 height)
 
 void MapRenderer::render(sf::RenderWindow& window, Int8 chosenCategory, Int8 chosenBuild, bool drawBuildInfo)
 {
+	window.draw(selectedTile.rectform);
 	window.draw(buildMenu.rectform);
 	window.draw(category);
 	window.draw(selectedCategory.rectform);

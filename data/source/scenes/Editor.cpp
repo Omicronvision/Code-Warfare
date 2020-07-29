@@ -114,9 +114,9 @@ void Editor::click(sf::Vector2f MP, sf::Vector2f MPC, Int32& scene, sf::RenderWi
 
 	} else
 	{
-		int tmx = (int)MPC.x / 50 + 1;
-		int tmy = (int)MPC.y / 50;
-		int tmpos = tmx + (tmy * 50) - 1;
+		const int tmx = (int)MPC.x / 50 + 1;
+		const int tmy = (int)MPC.y / 50;
+		const int tmpos = tmx + (tmy * 50) - 1;
 
 		if (editorTile.chosenTile <= 16)
 			editorTile.setTile(tmpos, editorTile.chosenTile);

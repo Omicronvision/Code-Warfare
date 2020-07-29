@@ -11,6 +11,7 @@ class TileMap : public sf::Drawable, public sf::Transformable
 {
 public:
 	TileMap();
+	bool checkTile(int tile, char c);
 	void loadTileMap(UInt32 sizeX, UInt32 sizeY);
 	void getMap(char* mapData);
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

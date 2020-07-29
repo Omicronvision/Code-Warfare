@@ -12,6 +12,14 @@ void TileMap::getMap(char* mapData)
 	charMap = mapData;
 }
 
+bool TileMap::checkTile(int tile, char c)
+{
+	if (charMap[tile] == c)
+		return true;
+	else
+		return false;
+}
+
 void TileMap::loadTileMap(UInt32 sizeX, UInt32 sizeY)
 {
 	tm_vertices.clear();

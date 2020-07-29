@@ -51,7 +51,10 @@ void Game::update()
 		break;
 
 	case Scenes::map:
-		mapScene.update();
+		view.moveView();
+		view.view.setCenter(view.crosshair.getPosition());
+		mapScene.update(view.view.getCenter().x - view.view.getSize().x / 2,
+			view.view.getCenter().y - view.view.getSize().y / 2, window.getSize().x, window.getSize().y);
 		break;
 	}
 	window.setView(view.view);
@@ -131,7 +134,7 @@ void Game::processEvents()
 					soloMenuScene.click(mousePositionF, nextScene, window);
 					break;
 				case Scenes::map:
-					mapScene.click(mousePositionF, nextScene, window);
+					mapScene.click(mousePositionF, mousePositionC, nextScene, window, b_paused);
 					break;
 				case Scenes::editorMenu:
 					editorScene.click(mousePositionF, mousePositionC, nextScene, window);
@@ -159,7 +162,7 @@ void Game::processEvents()
 				soloMenuScene.mouseMoved(mousePositionF);
 				break;
 			case Scenes::map:
-				mapScene.mouseMoved(mousePositionF);
+				mapScene.mouseMoved(mousePositionF, mousePositionC);
 				break;
 			case Scenes::editorMenu:
 				editorScene.mouseMoved(mousePositionF, mousePositionC);

@@ -27,7 +27,7 @@ private:
 	SoloMenu soloMenuScene;
 	Map mapScene;
 	Editor editorScene;
-	View view;
 	Fader fader;
+	View view;
 	Chrono fadingChrono;
 };

@@ -157,6 +157,8 @@
     <ClCompile Include="data\source\content\UIObjects.cpp" />
     <ClCompile Include="data\source\editor\EditorMap.cpp" />
     <ClCompile Include="data\source\editor\EditorTile.cpp" />
+    <ClCompile Include="data\source\entities\animations\Animation.cpp" />
+    <ClCompile Include="data\source\entities\animations\AnimationSprite.cpp" />
     <ClCompile Include="data\source\entities\buildings\Building.cpp" />
     <ClCompile Include="data\source\entities\buildings\Defensive.cpp" />
     <ClCompile Include="data\source\entities\buildings\Optimizer.cpp" />
@@ -166,6 +168,7 @@
     <ClCompile Include="data\source\entities\effects\Effects.cpp" />
     <ClCompile Include="data\source\entities\enemies\Enemy.cpp" />
     <ClCompile Include="data\source\framework\Chrono.cpp" />
+    <ClCompile Include="data\source\framework\FPSClock.cpp" />
     <ClCompile Include="data\source\framework\RichText.cpp" />
     <ClCompile Include="data\source\Game.cpp" />
     <ClCompile Include="data\source\game\EnemiesSpawning.cpp" />
@@ -206,6 +209,8 @@
     <ClInclude Include="data\source\content\UIObjects.h" />
     <ClInclude Include="data\source\editor\EditorMap.h" />
     <ClInclude Include="data\source\editor\EditorTile.h" />
+    <ClInclude Include="data\source\entities\animations\Animation.h" />
+    <ClInclude Include="data\source\entities\animations\AnimationSprite.h" />
     <ClInclude Include="data\source\entities\buildings\Building.h" />
     <ClInclude Include="data\source\entities\buildings\Defensive.h" />
     <ClInclude Include="data\source\entities\buildings\Optimizer.h" />
@@ -216,6 +221,7 @@
     <ClInclude Include="data\source\entities\enemies\Enemy.h" />
     <ClInclude Include="data\source\framework\Chrono.h" />
     <ClInclude Include="data\source\framework\DataTypes.h" />
+    <ClInclude Include="data\source\framework\FPSClock.h" />
     <ClInclude Include="data\source\framework\RichText.hpp" />
     <ClInclude Include="data\source\Game.h" />
     <ClInclude Include="data\source\game\EnemiesSpawning.h" />

@@ -20,10 +20,11 @@ public:
 	WaveSystem waveSystem;
 	Statistics stats;
 
-	enum GameState{NOTHING, WON, LOST};
+	enum class GameState{NOTHING, WON, LOST};
 	int CPU_usage = 0, greencoin = 0, electropiece = 0;
 	bool spawning = false;
-	GameState gameState = NOTHING;
+	char map[2500];
+	GameState gameState = GameState::NOTHING;
 
 	Buildings buildings;
 

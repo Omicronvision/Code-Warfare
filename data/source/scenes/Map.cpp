@@ -6,8 +6,22 @@ chosenCategory(1), chosenBuild(0), drawBuildInfo(false), categoryChanged(false),
 	mapRenderer.setPosition(1280, 720, 0, 0);
 }
 
+void Map::loadTileMap(std::string filename)
+{
+	std::string mapData;
+	sf::Vector2f CPU_pos;
+	std::vector<sf::Sprite> v_spawners;
+	mapIO.read(filename, mapData, CPU_pos, v_spawners);
+	mapData.copy(mapRes.map, mapData.size() + 1);
+	mapRes.map[mapData.size()] = '\0';
+	mapRenderer.CPU.setPosition(CPU_pos);                    // set CPU position
+	mapRes.tilemap.getMap(mapRes.map);
+	mapRes.tilemap.loadTileMap(50, 50);
+}
+
 void Map::draw(sf::RenderWindow& window)
 {
+	window.draw(mapRes.tilemap);
 	mapRenderer.render(window, chosenCategory, chosenBuild, drawBuildInfo);
 }
 
@@ -181,14 +195,14 @@ void Map::click(sf::Vector2f MP, sf::Vector2f MPC, Int32& scene, sf::RenderWindo
 						if ((mapRes.greencoin >= mapRes.buildings.optimizer1.building.getPriceGC()) &&
 							(mapRes.electropiece >= mapRes.buildings.optimizer1.building.getPriceEP()))
 						{
-							mapRes.v_turBuildings.emplace_back(std::make_unique<Turret>(mapRes.buildings.optimizer1));
+							mapRes.v_optBuildings.emplace_back(std::make_unique<Optimizer>(mapRes.buildings.optimizer1));
 							isBuiltOpt = true;
 						} break;
 					case 31: /// Optimizer 2.0
 						if ((mapRes.greencoin >= mapRes.buildings.optimizer2.building.getPriceGC()) &&
 							(mapRes.electropiece >= mapRes.buildings.optimizer2.building.getPriceEP()))
 						{
-							mapRes.v_turBuildings.emplace_back(std::make_unique<Turret>(mapRes.buildings.optimizer2));
+							mapRes.v_optBuildings.emplace_back(std::make_unique<Optimizer>(mapRes.buildings.optimizer2));
 							isBuiltOpt = true;
 						} break;
 					}

@@ -140,6 +140,15 @@
     <ClCompile Include="data\source\map\MapRes.cpp">
       <Filter>Game\map</Filter>
     </ClCompile>
+    <ClCompile Include="data\source\entities\animations\Animation.cpp">
+      <Filter>Game\entities\animations</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\entities\animations\AnimationSprite.cpp">
+      <Filter>Game\entities\animations</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\framework\FPSClock.cpp">
+      <Filter>Game\framework</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Game">
@@ -189,6 +198,9 @@
     </Filter>
     <Filter Include="Game\editor">
       <UniqueIdentifier>{1f8532dc-dc5e-4c12-82c4-8e61d83f084c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\entities\animations">
+      <UniqueIdentifier>{89555273-7256-4b40-8873-67b6bfcf0b16}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -332,6 +344,15 @@
     </ClInclude>
     <ClInclude Include="data\source\map\MapRes.h">
       <Filter>Game\map</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\entities\animations\Animation.h">
+      <Filter>Game\entities\animations</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\entities\animations\AnimationSprite.h">
+      <Filter>Game\entities\animations</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\framework\FPSClock.h">
+      <Filter>Game\framework</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

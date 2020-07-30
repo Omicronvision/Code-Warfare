@@ -43,9 +43,16 @@ void SoloMenu::mouseMoved(sf::Vector2f MP)
 		soloMenuRenderer.bexit.rectform.setFillColor(sf::Color::Black);
 }
 
-void SoloMenu::click(sf::Vector2f MP, Int32& scene, sf::RenderWindow& window)
+void SoloMenu::click(sf::Vector2f MP, Int32& scene, sf::RenderWindow& window, std::string& mapFileName, bool& newMap)
 {
+	newMap = false;
 	scene = 0;
 	if (soloMenuRenderer.bexit.rectform.getGlobalBounds().contains(MP))
 		scene = Scenes::mainMenu;
+	else if (soloMenuRenderer.b1.rectform.getGlobalBounds().contains(MP))
+	{
+		scene = Scenes::map;
+		mapFileName = "data/maps/electrohalls.dat";
+		newMap = true;
+	}
 }

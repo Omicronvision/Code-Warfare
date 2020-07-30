@@ -15,7 +15,7 @@ public:
 	void draw(sf::RenderWindow& window);
 	void update();
 	void mouseMoved(sf::Vector2f MP);
-	void click(sf::Vector2f MP, Int32& scene, sf::RenderWindow& window);
+	void click(sf::Vector2f MP, Int32& scene, sf::RenderWindow& window, std::string& mapFileName, bool& newMap);
 	SoloMenuRenderer soloMenuRenderer;
 };
 

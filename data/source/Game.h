@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "framework/DataTypes.h"
+#include "framework/FPSClock.h"
 #include "scenes/Scenes.h"
 #include "ui/View.h"
 #include "ui/Fader.h"
@@ -30,4 +31,5 @@ private:
 	Fader fader;
 	View view;
 	Chrono fadingChrono;
+	FPSClock fpsclock;
 };

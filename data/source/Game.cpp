@@ -6,7 +6,7 @@ b_paused(false)
 {
 	srand((dt::UInt32)time(NULL));
 	//window settings
-	window.setFramerateLimit(200);
+	window.setFramerateLimit(180);
 }
 
 void Game::run()
@@ -22,6 +22,9 @@ void Game::run()
 
 void Game::update()
 {
+	fpsclock.update();
+	fpsclock.setPosition(view.view.getCenter().x - view.view.getSize().x / 2,
+		view.view.getCenter().y - view.view.getSize().y / 2);
 	switch(scenes.currentScene)
 	{
 	case Scenes::mainMenu:
@@ -94,14 +97,17 @@ void Game::render()
 	}
 	if (fader.getOpacity() != 0)
 		fader.draw(window);
+	fpsclock.draw(window);
 	window.display();
 }
 
 void Game::processEvents()
 {
 	sf::Event event;
+	std::string mapFileName;
 	Int32 nextScene = 0;
 	bool changeScene = false;
+	bool newMap = false;
 	// get mouse position on window (integer)
 	sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
 	// get mouse position on window (float)
@@ -131,7 +137,7 @@ void Game::processEvents()
 					optionsMenuScene.click(mousePositionF, nextScene, window);
 					break;
 				case Scenes::soloMenu:
-					soloMenuScene.click(mousePositionF, nextScene, window);
+					soloMenuScene.click(mousePositionF, nextScene, window, mapFileName, newMap);
 					break;
 				case Scenes::map:
 					mapScene.click(mousePositionF, mousePositionC, nextScene, window, b_paused);
@@ -200,11 +206,18 @@ void Game::processEvents()
 	}
 
 	changeScene = nextScene != 0;
-	if(changeScene)
+
+	if (changeScene)
 	{
 		view.view.reset(sf::FloatRect(0, 0, window.getSize().x, window.getSize().y));
 		transitionOn();
 		scenes.currentScene = static_cast<Scenes::Scene>(nextScene);
+		if (newMap)
+		{
+			mapScene.mapRes.resetGame();
+			mapScene.loadTileMap(mapFileName);
+			mapScene.mapRes.waveSystem.startWaveChrono();
+		}
 		transitionOff();
 	}
 }

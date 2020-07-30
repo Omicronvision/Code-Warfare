@@ -10,7 +10,7 @@ void hideConsole()
 
 int main()
 {
-	hideConsole();
+	//hideConsole();
 
 	Game game;
 	game.run();

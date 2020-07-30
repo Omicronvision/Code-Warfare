@@ -11,10 +11,11 @@ void Map::loadTileMap(std::string filename)
 	std::string mapData;
 	sf::Vector2f CPU_pos;
 	std::vector<sf::Sprite> v_spawners;
-	mapIO.read(filename, mapData, CPU_pos, v_spawners);
+	if(!mapIO.read(filename, mapData, CPU_pos, v_spawners))
+		exit(6);
 	mapData.copy(mapRes.map, mapData.size() + 1);
 	mapRes.map[mapData.size()] = '\0';
-	mapRenderer.CPU.setPosition(CPU_pos);                    // set CPU position
+	mapRenderer.CPU.setPosition(CPU_pos);
 	mapRes.tilemap.getMap(mapRes.map);
 	mapRes.tilemap.loadTileMap(50, 50);
 }

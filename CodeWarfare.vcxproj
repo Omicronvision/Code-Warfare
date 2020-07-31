@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="data\source\content\Animations.cpp" />
     <ClCompile Include="data\source\content\Buildings.cpp" />
     <ClCompile Include="data\source\content\Bullets.cpp" />
     <ClCompile Include="data\source\content\Enemies.cpp" />
@@ -203,6 +204,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="data\source\content\Animations.h" />
     <ClInclude Include="data\source\content\Buildings.h" />
     <ClInclude Include="data\source\content\Bullets.h" />
     <ClInclude Include="data\source\content\Enemies.h" />

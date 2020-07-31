@@ -20,12 +20,14 @@ public:
 	void update(Int32 x, Int32 y, Int32 width, Int32 height);
 	void mouseMoved(sf::Vector2f MP, sf::Vector2f MPC);
 	void click(sf::Vector2f MP, sf::Vector2f MPC, Int32& scene, sf::RenderWindow& window, bool paused);
+	void updateCoins();
+	void updateWaveTime();
+	void updateBuildingInfo(std::string name, int CPU_usage, int id, int damage, int range, float shootingSpeed, int gre, int ele);
 	MapRenderer mapRenderer;
 	MapRes mapRes;
 
 private:
 	MapIO mapIO;
-	bool categoryChanged, buildChanged;
 	Int8 chosenCategory, chosenBuild;
 	bool drawBuildInfo;
 };

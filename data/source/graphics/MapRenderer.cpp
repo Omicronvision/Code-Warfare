@@ -5,7 +5,7 @@ waveInfo("", 30, sf::Color::White, sf::Color::Black, 3),
 tpiece1("", 20, sf::Color::White, sf::Color::Black, 1),
 tpiece2("", 20, sf::Color::White, sf::Color::Black, 1),
 ppiece1("", 20, sf::Color::Red, sf::Color::Black, 1),
-ppiece2("", 20, sf::Color::Red, sf::Color::Red, 1),
+ppiece2("", 20, sf::Color::Red, sf::Color::Black, 1),
 buildingName("", 25, sf::Color::White, sf::Color::Black, 1),
 tpaused("Paused", 60, sf::Color::White, sf::Color::Black, 4),
 tm1("Resume", 50, sf::Color::White, sf::Color::Black, 4),
@@ -29,6 +29,8 @@ Tc1("data/graphics/tiles/c1.png", true, false),
 Tc2("data/graphics/tiles/c2.png", true, false),
 Tc3("data/graphics/tiles/c3.png", true, false),
 Tc4("data/graphics/tiles/c4.png", true, false),
+Tbuildings("data/graphics/tiles/tiles-2.png", true, false),
+Tbackground("data/graphics/other/game-background.jpg", false, false),
 buildingInfo(16)
 {
 	// setting text font
@@ -55,6 +57,7 @@ buildingInfo(16)
 	c2.setTexture(Tc2.texture);
 	c3.setTexture(Tc3.texture);
 	c4.setTexture(Tc4.texture);
+	background.setTexture(Tbackground.texture);
 }
 
 MapRenderer::~MapRenderer()
@@ -64,6 +67,7 @@ MapRenderer::~MapRenderer()
 
 void MapRenderer::setPosition(Int32 x, Int32 y, Int32 width, Int32 height)
 {
+	background.setPosition(x, y);
 	buildMenu.rectform.setPosition(sf::Vector2f(x + 10, y + 10));
 	category.setPosition(sf::Vector2f(x + 10, y + 10));
 	c1.setPosition(sf::Vector2f(x + 10, y + 80));
@@ -88,6 +92,7 @@ void MapRenderer::setPosition(Int32 x, Int32 y, Int32 width, Int32 height)
 void MapRenderer::render(sf::RenderWindow& window, Int8 chosenCategory, Int8 chosenBuild, bool drawBuildInfo)
 {
 	window.draw(selectedTile.rectform);
+	window.draw(CPU);
 	window.draw(buildMenu.rectform);
 	window.draw(category);
 	window.draw(selectedCategory.rectform);

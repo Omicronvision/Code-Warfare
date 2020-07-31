@@ -16,7 +16,6 @@ void WaveSystem::pauseWaveChrono()
 
 void WaveSystem::resetWaveChrono()
 {
-	waveNumber = 0;
 	waveChrono.reset();
 }
 

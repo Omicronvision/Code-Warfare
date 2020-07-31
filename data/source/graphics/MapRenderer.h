@@ -15,10 +15,10 @@ public:
 	void render(sf::RenderWindow& window, Int8 chosenCategory, Int8 chosenBuild, bool drawBuildInfo);
 
 	// user interface objects
-	UIobj::Texture Tcategory, T1, T2, TCPU, Tspawner, Tc1, Tc2, Tc3, Tc4;
+	UIobj::Texture Tcategory, T1, T2, TCPU, Tspawner, Tc1, Tc2, Tc3, Tc4, Tbuildings, Tbackground;
 	UIobj::RectForm buildMenu, infoMenu, selectedCategory, selectedBuilding, m1, m2, pauseBg, selectedTile;
 	UIobj::Text waveInfo, tpiece1, tpiece2, ppiece1, ppiece2, buildingName, tpaused, tm1, tm2, tend1, tend2;
 	UIobj::RichText buildingInfo;
-	sf::Sprite category, s1, s2, CPU, spawner, c1, c2, c3, c4;
+	sf::Sprite category, s1, s2, CPU, spawner, c1, c2, c3, c4, background;
 };
 

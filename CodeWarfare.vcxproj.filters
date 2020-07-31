@@ -149,6 +149,9 @@
     <ClCompile Include="data\source\framework\FPSClock.cpp">
       <Filter>Game\framework</Filter>
     </ClCompile>
+    <ClCompile Include="data\source\content\Animations.cpp">
+      <Filter>Game\content</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Game">
@@ -353,6 +356,9 @@
     </ClInclude>
     <ClInclude Include="data\source\framework\FPSClock.h">
       <Filter>Game\framework</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\content\Animations.h">
+      <Filter>Game\content</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

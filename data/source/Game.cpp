@@ -92,7 +92,7 @@ void Game::render()
 		break;
 
 	case Scenes::map:
-		mapScene.draw(window);
+		mapScene.draw(window, b_paused);
 		break;
 	}
 	if (fader.getOpacity() != 0)
@@ -168,7 +168,7 @@ void Game::processEvents()
 				soloMenuScene.mouseMoved(mousePositionF);
 				break;
 			case Scenes::map:
-				mapScene.mouseMoved(mousePositionF, mousePositionC);
+				mapScene.mouseMoved(mousePositionF, mousePositionC, b_paused, window.getSize().x, window.getSize().y);
 				break;
 			case Scenes::editorMenu:
 				editorScene.mouseMoved(mousePositionF, mousePositionC);
@@ -177,6 +177,20 @@ void Game::processEvents()
 			break;
 
 		case sf::Event::KeyPressed:
+			switch(scenes.currentScene)
+			{
+			case Scenes::mainMenu:
+				if (event.key.code == sf::Keyboard::Escape)
+					window.close();
+			case Scenes::map:
+				if (event.key.code == sf::Keyboard::Escape)
+					b_paused = !b_paused;
+				if (b_paused)
+					mapScene.mapRes.waveSystem.pauseWaveChrono();
+				else
+					mapScene.mapRes.waveSystem.startWaveChrono();
+				break;
+			}
 			break;
 
 		case sf::Event::Resized:

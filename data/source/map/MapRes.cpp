@@ -123,7 +123,7 @@ void MapRes::updateBuildings()
 			const int opx = v_defBuildings[i]->building.quad->position.x / 50;
 			const int opy = v_defBuildings[i]->building.quad->position.y / 50;
 			const int op = opx + (opy * 50);
-			quad = &v_vertBuildings[static_cast<long>(((op % 50) + (op / 50) * 50) * 4)];
+			quad = &v_vertBuildings[((op % 50) + (op / 50) * 50) * 4];
 			quad[0].color = sf::Color(0, 0, 0, 0);
 			quad[1].color = sf::Color(0, 0, 0, 0);
 			quad[2].color = sf::Color(0, 0, 0, 0);

@@ -1,7 +1,7 @@
 {
 	"controls" : 1,
 	"fullscreen" : false,
-	"heavyShaders" : true,
-	"music" : true,
-	"soundEffects" : true
+	"heavyShaders" : false,
+	"music" : false,
+	"soundEffects" : false
 }

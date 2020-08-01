@@ -20,12 +20,22 @@ void Map::loadTileMap(std::string filename)
 	mapRes.tilemap.loadTileMap(50, 50);
 }
 
-void Map::draw(sf::RenderWindow& window)
+void Map::draw(sf::RenderWindow& window, bool paused)
 {
 	window.draw(mapRenderer.background);
 	window.draw(mapRes.tilemap);
 	window.draw(&mapRes.v_vertBuildings[0], mapRes.v_vertBuildings.size(), sf::Quads, &mapRenderer.Tbuildings.texture);
 	mapRenderer.render(window, chosenCategory, chosenBuild, drawBuildInfo);
+
+	if (paused)
+	{
+		window.draw(mapRenderer.pauseBg.rectform);
+		window.draw(mapRenderer.m1.rectform);
+		window.draw(mapRenderer.m2.rectform);
+		window.draw(mapRenderer.tm1.text);
+		window.draw(mapRenderer.tm2.text);
+		window.draw(mapRenderer.tpaused.text);
+	}
 }
 
 void Map::update(Int32 x, Int32 y, Int32 width, Int32 height)
@@ -87,7 +97,7 @@ void Map::update(Int32 x, Int32 y, Int32 width, Int32 height)
 	}
 }
 
-void Map::mouseMoved(sf::Vector2f MP, sf::Vector2f MPC)
+void Map::mouseMoved(sf::Vector2f MP, sf::Vector2f MPC, bool paused, Int32 width, Int32 height)
 {
 	const int tmx = (int)MPC.x / 50 + 1;
 	const int tmy = (int)MPC.y / 50;
@@ -96,119 +106,135 @@ void Map::mouseMoved(sf::Vector2f MP, sf::Vector2f MPC)
 	const int y = tmpos / 50;
 	mapRenderer.selectedTile.rectform.setPosition(sf::Vector2f(50 * x, 50 * y));
 
-	switch(chosenCategory)
+	if (!paused)
 	{
-	case 1:
-		if (sf::FloatRect(10, 80, 50, 50).contains(MP))
-			updateBuildingInfo(mapRes.buildings.greenCoinMiner.building.getName(),
-				mapRes.buildings.greenCoinMiner.building.getCPU_usage(),
-				mapRes.buildings.greenCoinMiner.building.ID, 0, 0, 0,
-				mapRes.buildings.greenCoinMiner.building.getPriceGC(),
-				mapRes.buildings.greenCoinMiner.building.getPriceEP());
-		else if (sf::FloatRect(60, 80, 50, 50).contains(MP))
-			updateBuildingInfo(mapRes.buildings.electroPieceMiner.building.getName(),
-				mapRes.buildings.electroPieceMiner.building.getCPU_usage(),
-				mapRes.buildings.electroPieceMiner.building.ID, 0, 0, 0,
-				mapRes.buildings.electroPieceMiner.building.getPriceGC(),
-				mapRes.buildings.electroPieceMiner.building.getPriceEP());
-		break;
-	case 2:
-		if (sf::FloatRect(10, 80, 50, 50).contains(MP))
-			updateBuildingInfo(mapRes.buildings.defender1.building.getName(),
-				mapRes.buildings.defender1.building.getCPU_usage(),
-				mapRes.buildings.defender1.building.ID,
-				mapRes.buildings.defender1.damage,
-				mapRes.buildings.defender1.radius.getRadius(),
-				mapRes.buildings.defender1.shootingTime,
-				mapRes.buildings.defender1.building.getPriceGC(),
-				mapRes.buildings.defender1.building.getPriceEP());
-		else if (sf::FloatRect(60, 80, 50, 50).contains(MP))
-			updateBuildingInfo(mapRes.buildings.defender2.building.getName(),
-				mapRes.buildings.defender2.building.getCPU_usage(),
-				mapRes.buildings.defender2.building.ID,
-				mapRes.buildings.defender2.damage,
-				mapRes.buildings.defender2.radius.getRadius(),
-				mapRes.buildings.defender2.shootingTime,
-				mapRes.buildings.defender2.building.getPriceGC(),
-				mapRes.buildings.defender2.building.getPriceEP());
-		else if (sf::FloatRect(110, 80, 50, 50).contains(MP))
-			updateBuildingInfo(mapRes.buildings.lag.building.getName(),
-				mapRes.buildings.lag.building.getCPU_usage(),
-				mapRes.buildings.lag.building.ID,
-				mapRes.buildings.lag.damage,
-				mapRes.buildings.lag.radius.getRadius(),
-				mapRes.buildings.lag.shootingTime,
-				mapRes.buildings.lag.building.getPriceGC(),
-				mapRes.buildings.lag.building.getPriceEP());
-		else if (sf::FloatRect(160, 80, 50, 50).contains(MP))
-			updateBuildingInfo(mapRes.buildings.hawk.building.getName(),
-				mapRes.buildings.hawk.building.getCPU_usage(),
-				mapRes.buildings.hawk.building.ID,
-				mapRes.buildings.hawk.damage,
-				mapRes.buildings.hawk.radius.getRadius(),
-				mapRes.buildings.hawk.shootingTime,
-				mapRes.buildings.hawk.building.getPriceGC(),
-				mapRes.buildings.hawk.building.getPriceEP());
-		else if (sf::FloatRect(10, 130, 50, 50).contains(MP))
-			updateBuildingInfo(mapRes.buildings.scanner.building.getName(),
-				mapRes.buildings.scanner.building.getCPU_usage(),
-				mapRes.buildings.scanner.building.ID,
-				mapRes.buildings.scanner.damage,
-				mapRes.buildings.scanner.radius.getRadius(),
-				mapRes.buildings.scanner.shootingTime,
-				mapRes.buildings.scanner.building.getPriceGC(),
-				mapRes.buildings.scanner.building.getPriceEP());
-		else if (sf::FloatRect(60, 130, 50, 50).contains(MP))
-			updateBuildingInfo(mapRes.buildings.multi.building.getName(),
-				mapRes.buildings.multi.building.getCPU_usage(),
-				mapRes.buildings.multi.building.ID,
-				mapRes.buildings.multi.damage,
-				mapRes.buildings.multi.radius.getRadius(),
-				mapRes.buildings.multi.shootingTime,
-				mapRes.buildings.multi.building.getPriceGC(),
-				mapRes.buildings.multi.building.getPriceEP());
-		break;
-	case 3:
-		if (sf::FloatRect(10, 80, 50, 50).contains(MP))
-			updateBuildingInfo(mapRes.buildings.dp1.building.getName(),
-				mapRes.buildings.dp1.building.getCPU_usage(),
-				mapRes.buildings.dp1.building.ID,
-				mapRes.buildings.dp1.damage, 0, 0,
-				mapRes.buildings.dp1.building.getPriceGC(),
-				mapRes.buildings.dp1.building.getPriceEP());
-		else if (sf::FloatRect(60, 80, 50, 50).contains(MP))
-			updateBuildingInfo(mapRes.buildings.dp2.building.getName(),
-				mapRes.buildings.dp2.building.getCPU_usage(),
-				mapRes.buildings.dp2.building.ID,
-				mapRes.buildings.dp2.damage, 0, 0,
-				mapRes.buildings.dp2.building.getPriceGC(),
-				mapRes.buildings.dp2.building.getPriceEP());
-		else if (sf::FloatRect(110, 80, 50, 50).contains(MP))
-			updateBuildingInfo(mapRes.buildings.dp3.building.getName(),
-				mapRes.buildings.dp3.building.getCPU_usage(),
-				mapRes.buildings.dp3.building.ID,
-				mapRes.buildings.dp3.damage, 0, 0,
-				mapRes.buildings.dp3.building.getPriceGC(),
-				mapRes.buildings.dp3.building.getPriceEP());
-		break;
-	case 4:
-		if (sf::FloatRect(10, 80, 50, 50).contains(MP))
-			updateBuildingInfo(mapRes.buildings.optimizer1.building.getName(),
-				mapRes.buildings.optimizer1.building.getCPU_usage(),
-				mapRes.buildings.optimizer1.building.ID, 0, 0, 0,
-				mapRes.buildings.optimizer1.building.getPriceGC(),
-				mapRes.buildings.optimizer1.building.getPriceEP());
-		else if (sf::FloatRect(60, 80, 50, 50).contains(MP))
-			updateBuildingInfo(mapRes.buildings.optimizer2.building.getName(),
-				mapRes.buildings.optimizer2.building.getCPU_usage(),
-				mapRes.buildings.optimizer2.building.ID, 0, 0, 0,
-				mapRes.buildings.optimizer2.building.getPriceGC(),
-				mapRes.buildings.optimizer2.building.getPriceEP());
-		break;
+		switch (chosenCategory)
+		{
+		case 1:
+			if (sf::FloatRect(10, 80, 50, 50).contains(MP))
+				updateBuildingInfo(mapRes.buildings.greenCoinMiner.building.getName(),
+					mapRes.buildings.greenCoinMiner.building.getCPU_usage(),
+					mapRes.buildings.greenCoinMiner.building.ID, 0, 0, 0,
+					mapRes.buildings.greenCoinMiner.building.getPriceGC(),
+					mapRes.buildings.greenCoinMiner.building.getPriceEP());
+			else if (sf::FloatRect(60, 80, 50, 50).contains(MP))
+				updateBuildingInfo(mapRes.buildings.electroPieceMiner.building.getName(),
+					mapRes.buildings.electroPieceMiner.building.getCPU_usage(),
+					mapRes.buildings.electroPieceMiner.building.ID, 0, 0, 0,
+					mapRes.buildings.electroPieceMiner.building.getPriceGC(),
+					mapRes.buildings.electroPieceMiner.building.getPriceEP());
+			break;
+		case 2:
+			if (sf::FloatRect(10, 80, 50, 50).contains(MP))
+				updateBuildingInfo(mapRes.buildings.defender1.building.getName(),
+					mapRes.buildings.defender1.building.getCPU_usage(),
+					mapRes.buildings.defender1.building.ID,
+					mapRes.buildings.defender1.damage,
+					mapRes.buildings.defender1.radius.getRadius(),
+					mapRes.buildings.defender1.shootingTime,
+					mapRes.buildings.defender1.building.getPriceGC(),
+					mapRes.buildings.defender1.building.getPriceEP());
+			else if (sf::FloatRect(60, 80, 50, 50).contains(MP))
+				updateBuildingInfo(mapRes.buildings.defender2.building.getName(),
+					mapRes.buildings.defender2.building.getCPU_usage(),
+					mapRes.buildings.defender2.building.ID,
+					mapRes.buildings.defender2.damage,
+					mapRes.buildings.defender2.radius.getRadius(),
+					mapRes.buildings.defender2.shootingTime,
+					mapRes.buildings.defender2.building.getPriceGC(),
+					mapRes.buildings.defender2.building.getPriceEP());
+			else if (sf::FloatRect(110, 80, 50, 50).contains(MP))
+				updateBuildingInfo(mapRes.buildings.lag.building.getName(),
+					mapRes.buildings.lag.building.getCPU_usage(),
+					mapRes.buildings.lag.building.ID,
+					mapRes.buildings.lag.damage,
+					mapRes.buildings.lag.radius.getRadius(),
+					mapRes.buildings.lag.shootingTime,
+					mapRes.buildings.lag.building.getPriceGC(),
+					mapRes.buildings.lag.building.getPriceEP());
+			else if (sf::FloatRect(160, 80, 50, 50).contains(MP))
+				updateBuildingInfo(mapRes.buildings.hawk.building.getName(),
+					mapRes.buildings.hawk.building.getCPU_usage(),
+					mapRes.buildings.hawk.building.ID,
+					mapRes.buildings.hawk.damage,
+					mapRes.buildings.hawk.radius.getRadius(),
+					mapRes.buildings.hawk.shootingTime,
+					mapRes.buildings.hawk.building.getPriceGC(),
+					mapRes.buildings.hawk.building.getPriceEP());
+			else if (sf::FloatRect(10, 130, 50, 50).contains(MP))
+				updateBuildingInfo(mapRes.buildings.scanner.building.getName(),
+					mapRes.buildings.scanner.building.getCPU_usage(),
+					mapRes.buildings.scanner.building.ID,
+					mapRes.buildings.scanner.damage,
+					mapRes.buildings.scanner.radius.getRadius(),
+					mapRes.buildings.scanner.shootingTime,
+					mapRes.buildings.scanner.building.getPriceGC(),
+					mapRes.buildings.scanner.building.getPriceEP());
+			else if (sf::FloatRect(60, 130, 50, 50).contains(MP))
+				updateBuildingInfo(mapRes.buildings.multi.building.getName(),
+					mapRes.buildings.multi.building.getCPU_usage(),
+					mapRes.buildings.multi.building.ID,
+					mapRes.buildings.multi.damage,
+					mapRes.buildings.multi.radius.getRadius(),
+					mapRes.buildings.multi.shootingTime,
+					mapRes.buildings.multi.building.getPriceGC(),
+					mapRes.buildings.multi.building.getPriceEP());
+			break;
+		case 3:
+			if (sf::FloatRect(10, 80, 50, 50).contains(MP))
+				updateBuildingInfo(mapRes.buildings.dp1.building.getName(),
+					mapRes.buildings.dp1.building.getCPU_usage(),
+					mapRes.buildings.dp1.building.ID,
+					mapRes.buildings.dp1.damage, 0, 0,
+					mapRes.buildings.dp1.building.getPriceGC(),
+					mapRes.buildings.dp1.building.getPriceEP());
+			else if (sf::FloatRect(60, 80, 50, 50).contains(MP))
+				updateBuildingInfo(mapRes.buildings.dp2.building.getName(),
+					mapRes.buildings.dp2.building.getCPU_usage(),
+					mapRes.buildings.dp2.building.ID,
+					mapRes.buildings.dp2.damage, 0, 0,
+					mapRes.buildings.dp2.building.getPriceGC(),
+					mapRes.buildings.dp2.building.getPriceEP());
+			else if (sf::FloatRect(110, 80, 50, 50).contains(MP))
+				updateBuildingInfo(mapRes.buildings.dp3.building.getName(),
+					mapRes.buildings.dp3.building.getCPU_usage(),
+					mapRes.buildings.dp3.building.ID,
+					mapRes.buildings.dp3.damage, 0, 0,
+					mapRes.buildings.dp3.building.getPriceGC(),
+					mapRes.buildings.dp3.building.getPriceEP());
+			break;
+		case 4:
+			if (sf::FloatRect(10, 80, 50, 50).contains(MP))
+				updateBuildingInfo(mapRes.buildings.optimizer1.building.getName(),
+					mapRes.buildings.optimizer1.building.getCPU_usage(),
+					mapRes.buildings.optimizer1.building.ID, 0, 0, 0,
+					mapRes.buildings.optimizer1.building.getPriceGC(),
+					mapRes.buildings.optimizer1.building.getPriceEP());
+			else if (sf::FloatRect(60, 80, 50, 50).contains(MP))
+				updateBuildingInfo(mapRes.buildings.optimizer2.building.getName(),
+					mapRes.buildings.optimizer2.building.getCPU_usage(),
+					mapRes.buildings.optimizer2.building.ID, 0, 0, 0,
+					mapRes.buildings.optimizer2.building.getPriceGC(),
+					mapRes.buildings.optimizer2.building.getPriceEP());
+			break;
+		}
+	} else
+	{
+		const sf::FloatRect button1(width / 2 - mapRenderer.m1.rectform.getSize().x / 2, height / 2 - 200, 300, 80);
+		const sf::FloatRect button2(width / 2 - mapRenderer.m2.rectform.getSize().x / 2, height / 2 - 80, 300, 80);
+		if (button1.contains(MP))
+			mapRenderer.m1.rectform.setFillColor(sf::Color(115, 22, 17));
+		else
+			mapRenderer.m1.rectform.setFillColor(sf::Color::Black);
+
+		if (button2.contains(MP))
+			mapRenderer.m2.rectform.setFillColor(sf::Color(115, 22, 17));
+		else
+			mapRenderer.m2.rectform.setFillColor(sf::Color::Black);
 	}
 }
 
-void Map::click(sf::Vector2f MP, sf::Vector2f MPC, Int32& scene, sf::RenderWindow& window, bool paused)
+void Map::click(sf::Vector2f MP, sf::Vector2f MPC, Int32& scene, sf::RenderWindow& window, bool& paused)
 {
 	const int tmx = (int)MPC.x / 50 + 1;
 	const int tmy = (int)MPC.y / 50;
@@ -428,6 +454,18 @@ void Map::click(sf::Vector2f MP, sf::Vector2f MPC, Int32& scene, sf::RenderWindo
 					else if (sf::FloatRect(60, 80, 50, 50).contains(MP)) chosenBuild = 31;
 					break;
 				}
+		}
+	} else
+	{
+		const sf::FloatRect button1(window.getSize().x / 2 - mapRenderer.m1.rectform.getSize().x / 2, window.getSize().y / 2 - 200, 300, 80);
+		const sf::FloatRect button2(window.getSize().x / 2 - mapRenderer.m2.rectform.getSize().x / 2, window.getSize().y / 2 - 80, 300, 80);
+		if (button1.contains(MP))
+			paused = false;
+		else if (button2.contains(MP))
+		{
+			mapRes.resetGame();
+			paused = false;
+			scene = Scenes::mainMenu;
 		}
 	}
 }

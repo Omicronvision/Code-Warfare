@@ -82,8 +82,11 @@ void MapRenderer::setPosition(Int32 x, Int32 y, Int32 width, Int32 height)
 	ppiece1.text.setPosition(sf::Vector2f(x + 100, y + 250));
 	ppiece2.text.setPosition(sf::Vector2f(x + 100, y + 280));
 	buildingName.text.setPosition(sf::Vector2f(x + 12, y + 220));
-	m1.rectform.setPosition(sf::Vector2f(x + width / 2 - m1.rectform.getSize().x / 2, y + height - 200));
-	m2.rectform.setPosition(sf::Vector2f(x + width / 2 - m2.rectform.getSize().x / 2, y + width - 80));
+	m1.rectform.setPosition(sf::Vector2f(x + width / 2 - m1.rectform.getSize().x / 2, y + height / 2 - 200));
+	m2.rectform.setPosition(sf::Vector2f(x + width / 2 - m2.rectform.getSize().x / 2, y + height / 2 - 80));
+	tm1.text.setPosition(sf::Vector2f(m1.rectform.getPosition().x + 90, m1.rectform.getPosition().y + 5));
+	tm2.text.setPosition(sf::Vector2f(m2.rectform.getPosition().x + 115, m2.rectform.getPosition().y + 5));
+	tpaused.text.setPosition(sf::Vector2f(x + width / 2 - 70, y + 50));
 	pauseBg.rectform.setPosition(sf::Vector2f(x, y));
 	infoMenu.rectform.setPosition(sf::Vector2f(x + 10, y + 320));
 	buildingInfo.text.setPosition(sf::Vector2f(infoMenu.rectform.getPosition().x + 2, infoMenu.rectform.getPosition().y + 5));

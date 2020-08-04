@@ -8,6 +8,7 @@
 #include "../graphics/MapRenderer.h"
 #include "../map/MapRes.h"
 #include "../io/MapIO.h"
+#include "../audio/SoundEffects.h"
 
 using namespace dt;
 

@@ -90,10 +90,19 @@ void Map::update(Int32 x, Int32 y, Int32 width, Int32 height)
 		mapRes.waveSystem.nextWave();
 		mapRes.spawning = true;
 		mapRes.waveSystem.startWaveChrono();
+		mapRes.enabledWaves.setFirstToSecond();
 	}
 	if (mapRes.spawning)
 	{
-
+		if (!mapRes.enabledWaves.isAllDisabled())
+			if (!mapRes.wave.isEnemiesRemaining())
+				mapRes.setEnemiesWave();
+			else
+				mapRes.spawnEnemies();
+		
+		if (mapRes.enabledWaves.isAllDisabled())
+			if (!mapRes.wave.isEnemiesRemaining())
+				mapRes.spawning = false;
 	}
 }
 

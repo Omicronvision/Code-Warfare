@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="data\source\audio\SoundEffects.cpp" />
     <ClCompile Include="data\source\content\Animations.cpp" />
     <ClCompile Include="data\source\content\Buildings.cpp" />
     <ClCompile Include="data\source\content\Bullets.cpp" />
@@ -172,10 +173,12 @@
     <ClCompile Include="data\source\framework\FPSClock.cpp" />
     <ClCompile Include="data\source\framework\RichText.cpp" />
     <ClCompile Include="data\source\Game.cpp" />
+    <ClCompile Include="data\source\game\EnabledWaves.cpp" />
     <ClCompile Include="data\source\game\EnemiesSpawning.cpp" />
     <ClCompile Include="data\source\game\Gamemodes.cpp" />
     <ClCompile Include="data\source\game\Rules.cpp" />
     <ClCompile Include="data\source\game\Statistics.cpp" />
+    <ClCompile Include="data\source\game\Wave.cpp" />
     <ClCompile Include="data\source\game\Waves.cpp" />
     <ClCompile Include="data\source\game\WaveSystem.cpp" />
     <ClCompile Include="data\source\graphics\EditorRenderer.cpp" />
@@ -204,6 +207,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="data\source\audio\SoundEffects.h" />
     <ClInclude Include="data\source\content\Animations.h" />
     <ClInclude Include="data\source\content\Buildings.h" />
     <ClInclude Include="data\source\content\Bullets.h" />
@@ -226,10 +230,12 @@
     <ClInclude Include="data\source\framework\FPSClock.h" />
     <ClInclude Include="data\source\framework\RichText.hpp" />
     <ClInclude Include="data\source\Game.h" />
+    <ClInclude Include="data\source\game\EnabledWaves.h" />
     <ClInclude Include="data\source\game\EnemiesSpawning.h" />
     <ClInclude Include="data\source\game\Gamemodes.h" />
     <ClInclude Include="data\source\game\Rules.h" />
     <ClInclude Include="data\source\game\Statistics.h" />
+    <ClInclude Include="data\source\game\Wave.h" />
     <ClInclude Include="data\source\game\Waves.h" />
     <ClInclude Include="data\source\game\WaveSystem.h" />
     <ClInclude Include="data\source\graphics\EditorRenderer.h" />

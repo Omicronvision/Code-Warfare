@@ -24,8 +24,6 @@ public:
 	int amount = 0;
 	// waves that need to pass to increase the amount of enemies
 	int enemyScaling = never;
-	// initial amount of enemies for the first wave
-	int initAmount = 0;
 	// waves that need to pass between each spawn
 	int waveSpacing = 1;
 	// time in seconds between each enemy to spawn

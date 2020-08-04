@@ -41,8 +41,8 @@ bool MapIO::read(std::string filename, std::string& mapData, sf::Vector2f& CPU_p
     file.read((char*)&CPU_pos.x, sizeof(CPU_pos.x));
     file.read((char*)&CPU_pos.y, sizeof(CPU_pos.y));
     // read spawners sprite
-    //file.read((char*)&spawnersSize, sizeof(spawnersSize));
-    //file.read((char*)spawners.data(), spawnersSize * sizeof(sf::Sprite));
+    file.read((char*)&spawnersSize, sizeof(spawnersSize));
+    file.read((char*)spawners.data(), spawnersSize * sizeof(sf::Sprite));
 
     file.close();
 

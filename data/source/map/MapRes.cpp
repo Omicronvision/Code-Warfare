@@ -24,6 +24,86 @@ void MapRes::resetGame()
 	v_vertBuildings.resize(50 * 50 * 4);
 }
 
+void MapRes::setEnemiesWave()
+{
+	EnemiesSpawning currentWave;
+	if (enabledWaves.enabledAdwSmallWave.second)
+	{
+		currentWave = waves.adwSmallWave;
+		enabledWaves.enabledAdwSmallWave.second = false;
+	} else if (enabledWaves.enabledAdwBigWave.second)
+	{
+		enabledWaves.enabledAdwBigWave.second = false;
+		currentWave = waves.adwBigWave;
+	} else if (enabledWaves.enabledDiaSmallWave.second)
+	{
+		currentWave = waves.diaSmallWave;
+		enabledWaves.enabledDiaSmallWave.second = false;
+	} else if (enabledWaves.enabledDiaBigWave.second)
+	{
+		currentWave = waves.diaBigWave;
+		enabledWaves.enabledDiaBigWave.second = false;
+	} else if (enabledWaves.enabledDroSmallWave.second)
+	{
+		currentWave = waves.droSmallWave;
+		enabledWaves.enabledDroSmallWave.second = false;
+	} else if (enabledWaves.enabledSpySmallWave.second)
+	{
+		currentWave = waves.spySmallWave;
+		enabledWaves.enabledSpySmallWave.second = false;
+	} else if (enabledWaves.enabledTroSmallWave.second)
+	{
+		currentWave = waves.troSmallWave;
+		enabledWaves.enabledTroSmallWave.second = false;
+	} else if (enabledWaves.enabledVirSmallWave.second)
+	{
+		currentWave = waves.virSmallWave;
+		enabledWaves.enabledVirSmallWave.second = false;
+	} else if (enabledWaves.enabledVirBigWave.second)
+	{
+		currentWave = waves.virBigWave;
+		enabledWaves.enabledVirBigWave.second = false;
+	}
+
+	if (currentWave.begin <= waveSystem.waveNumber)
+		if (currentWave.end > waveSystem.waveNumber)
+		{
+			int newAmount = waveSystem.waveNumber / currentWave.enemyScaling;
+			if (newAmount > currentWave.maxAmount)
+				newAmount = currentWave.maxAmount;
+			wave.remainingAdwares = currentWave.amount + newAmount;
+		}
+}
+
+void MapRes::spawnEnemies()
+{
+	if (wave.remainingAdwares != 0)
+	{
+		v_enemies.emplace_back(std::make_unique<Enemy>(enemies.adware));
+		wave.remainingAdwares--;
+	} else if (wave.remainingDialers != 0)
+	{
+		v_enemies.emplace_back(std::make_unique<Enemy>(enemies.dialer));
+		wave.remainingDialers--;
+	} else if (wave.remainingDroppers != 0)
+	{
+		v_enemies.emplace_back(std::make_unique<Enemy>(enemies.dropper));
+		wave.remainingDroppers--;
+	} else if (wave.remainingVirus != 0)
+	{
+		v_enemies.emplace_back(std::make_unique<Enemy>(enemies.virus));
+		wave.remainingVirus--;
+	} else if (wave.remainingTrojans != 0)
+	{
+		v_enemies.emplace_back(std::make_unique<Enemy>(enemies.trojan));
+		wave.remainingTrojans--;
+	} else if (wave.remainingSpywares != 0)
+	{
+		v_enemies.emplace_back(std::make_unique<Enemy>(enemies.spyware));
+		wave.remainingSpywares--;
+	}
+}
+
 void MapRes::updateBuildings()
 {
 	/// PRODUCTION BUILDINGS
@@ -140,9 +220,39 @@ void MapRes::updateBuildings()
 	}
 }
 
-void MapRes::updateEnemies()
+void MapRes::updateEnemies(sf::FloatRect CPUBox)
 {
-
+	for (unsigned int i = 0; i < v_enemies.size(); i++)
+	{
+		// check if bullet touch enemy
+		for (unsigned int j = 0; j < v_bullets.size(); j++)
+		{
+			if (v_bullets[j]->isEnemyTouched(v_enemies[i]->getBox()))
+			{
+				v_enemies[i]->ttdamage = 15;
+				v_enemies[i]->setHealth(v_enemies[i]->getHealth() - v_bullets[j]->damage);
+				v_bullets.erase(v_bullets.begin() + j);
+			}
+		}
+		// check if enemy touched CPU
+		if (CPUBox.intersects(v_enemies[i]->getBox()))
+		{
+			// sound
+			CPU_usage += 5;
+			if (v_enemies[i]->ID == 5)
+				greencoin -= 25;
+			v_enemies.erase(v_enemies.begin() + i);
+		}
+		// check if enemy health is on 0
+		if (v_enemies[i]->getHealth() <= 0)
+		{
+			v_animations.emplace_back(std::make_unique<AnimationSprite>(animations.animEnemyExplosion));
+			v_animations[v_animations.size() - 1]->setPosition(sf::Vector2f(v_enemies[i]->getBox().left - 24,
+			v_enemies[i]->getBox().top - 24));
+			// sound
+			v_enemies.erase(v_enemies.begin() + i);
+		}
+	}
 }
 
 void MapRes::updateAnimations()

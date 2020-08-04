@@ -11,20 +11,29 @@
 #include "../game/WaveSystem.h"
 #include "../game/Statistics.h"
 #include "../game/Rules.h"
+#include "../game/Waves.h"
+#include "../game/EnabledWaves.h"
+#include "../game/Wave.h"
+#include "../content/Enemies.h"
 
 class MapRes
 {
 public:
 	MapRes();
 	void resetGame();
+	void setEnemiesWave();
+	void spawnEnemies();
 	void updateBuildings();
-	void updateEnemies();
+	void updateEnemies(sf::FloatRect CPUBox);
 	void updateAnimations();
 
 	TileMap tilemap;
 	WaveSystem waveSystem;
 	Statistics stats;
 	Rules rules;
+	Wave wave;
+	Waves waves;
+	EnabledWaves enabledWaves;
 
 	enum class GameState{NOTHING, WON, LOST};
 	int CPU_usage = 0, greencoin = 0, electropiece = 0;
@@ -32,6 +41,7 @@ public:
 	char map[2500];
 	GameState gameState = GameState::NOTHING;
 
+	Enemies enemies;
 	Buildings buildings;
 	Bullets bullets;
 	Animations animations;

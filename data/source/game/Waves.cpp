@@ -5,6 +5,7 @@ Waves::Waves()
 	adwSmallWave.enemyID = EnemiesSpawning::ADWARE;
 	adwSmallWave.end = 10;
 	adwSmallWave.enemyScaling = 2;
+	adwSmallWave.amount = 1;
 
 	adwBigWave.enemyID = EnemiesSpawning::ADWARE;
 	adwBigWave.begin = 11;

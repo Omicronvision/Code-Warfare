@@ -53,6 +53,29 @@ void SoloMenu::click(sf::Vector2f MP, Int32& scene, sf::RenderWindow& window, st
 	{
 		scene = Scenes::map;
 		mapFileName = "data/maps/electrohalls.dat";
+		enabledWaves.enabledAdwSmallWave = std::make_pair(true, true);
+		enabledWaves.enabledAdwBigWave = std::make_pair(true, true);
+		enabledWaves.enabledDiaSmallWave = std::make_pair(true, true);
+		enabledWaves.enabledVirSmallWave = std::make_pair(true, true);
+		enabledWaves.enabledTroSmallWave = std::make_pair(true, true);
+		enabledWaves.enabledDiaBigWave = std::make_pair(false, false);
+		enabledWaves.enabledDroSmallWave = std::make_pair(false, false);
+		enabledWaves.enabledSpySmallWave = std::make_pair(false, false);
+		enabledWaves.enabledVirBigWave = std::make_pair(false, false);
+		newMap = true;
+	} else if (soloMenuRenderer.b2.rectform.getGlobalBounds().contains(MP))
+	{
+		scene = Scenes::map;
+		mapFileName = "data/maps/vortex.dat";
+		enabledWaves.enabledAdwSmallWave = std::make_pair(true, true);
+		enabledWaves.enabledDiaSmallWave = std::make_pair(true, true);
+		enabledWaves.enabledDiaBigWave = std::make_pair(true, true);
+		enabledWaves.enabledVirSmallWave = std::make_pair(true, true);
+		enabledWaves.enabledDroSmallWave = std::make_pair(true, true);
+		enabledWaves.enabledAdwBigWave = std::make_pair(false, false);
+		enabledWaves.enabledTroSmallWave = std::make_pair(false, false);
+		enabledWaves.enabledSpySmallWave = std::make_pair(false, false);
+		enabledWaves.enabledVirBigWave = std::make_pair(false, false);
 		newMap = true;
 	}
 }

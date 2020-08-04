@@ -152,6 +152,15 @@
     <ClCompile Include="data\source\content\Animations.cpp">
       <Filter>Game\content</Filter>
     </ClCompile>
+    <ClCompile Include="data\source\audio\SoundEffects.cpp">
+      <Filter>Game\audio</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\game\EnabledWaves.cpp">
+      <Filter>Game\game</Filter>
+    </ClCompile>
+    <ClCompile Include="data\source\game\Wave.cpp">
+      <Filter>Game\game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Game">
@@ -359,6 +368,15 @@
     </ClInclude>
     <ClInclude Include="data\source\content\Animations.h">
       <Filter>Game\content</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\audio\SoundEffects.h">
+      <Filter>Game\audio</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\game\EnabledWaves.h">
+      <Filter>Game\game</Filter>
+    </ClInclude>
+    <ClInclude Include="data\source\game\Wave.h">
+      <Filter>Game\game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

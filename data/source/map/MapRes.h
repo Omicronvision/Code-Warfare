@@ -48,6 +48,7 @@ public:
 
 	/// vectors
 	std::vector<int>								v_takenPos;
+	std::vector<sf::Sprite>							v_spawners;
 	std::vector<sf::Vertex>							v_vertBuildings;
 	std::vector<std::unique_ptr<Enemy>>				v_enemies;
 	std::vector<std::unique_ptr<Productive>>		v_proBuildings;

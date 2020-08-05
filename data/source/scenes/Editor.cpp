@@ -58,10 +58,17 @@ void Editor::click(sf::Vector2f MP, sf::Vector2f MPC, Int32& scene, sf::RenderWi
 	if (b1.contains(MP))
 		scene = Scenes::mainMenu;
 	else if (b2.contains(MP))
-		if (mapIO.write("data/maps/newMap.dat", std::string(editorTile.tilemap), editorTile.CPU.getPosition(), editorTile.vecSpawners))
+	{
+		std::vector<sf::Vector2f> vecSpawnersPos;
+		for (unsigned int i = 0; i < editorTile.vecSpawners.size(); i++)
+		{
+			vecSpawnersPos.push_back(editorTile.vecSpawners[i].getPosition());
+		}
+		if (mapIO.write("data/maps/electrohalls.dat", std::string(editorTile.tilemap), editorTile.CPU.getPosition(), vecSpawnersPos))
 			editorRenderer.tinfo.text.setString("Map saved successfully as \"newMap.data\"");
 		else
 			editorRenderer.tinfo.text.setString("Map saved unsuccessfully :(");
+	}
 	else if (b3.contains(MP))
 		0;
 	else if (sf::FloatRect(5, 5, 200, 250).contains(MP))

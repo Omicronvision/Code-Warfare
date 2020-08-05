@@ -1,5 +1,15 @@
 #include "EnabledWaves.h"
 
+std::pair<bool, bool> EnabledWaves::enabledAdwBigWave = { false, false };
+std::pair<bool, bool> EnabledWaves::enabledAdwSmallWave = { false, false };
+std::pair<bool, bool> EnabledWaves::enabledDiaBigWave = { false, false };
+std::pair<bool, bool> EnabledWaves::enabledDiaSmallWave = { false, false };
+std::pair<bool, bool> EnabledWaves::enabledDroSmallWave = { false, false };
+std::pair<bool, bool> EnabledWaves::enabledSpySmallWave = { false, false };
+std::pair<bool, bool> EnabledWaves::enabledTroSmallWave = { false, false };
+std::pair<bool, bool> EnabledWaves::enabledVirBigWave = { false, false };
+std::pair<bool, bool> EnabledWaves::enabledVirSmallWave = { false, false };
+
 void EnabledWaves::setFirstToSecond()
 {
 	enabledAdwBigWave.second = enabledAdwBigWave.first;

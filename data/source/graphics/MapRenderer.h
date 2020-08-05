@@ -12,7 +12,7 @@ public:
 	MapRenderer();
 	~MapRenderer();
 	void setPosition(Int32 x, Int32 y, Int32 width, Int32 height);
-	void render(sf::RenderWindow& window, Int8 chosenCategory, Int8 chosenBuild, bool drawBuildInfo);
+	void render(sf::RenderWindow& window, Int8 chosenCategory, Int8 chosenBuild, bool drawBuildInfo, std::vector<sf::Sprite> spawners);
 
 	// user interface objects
 	UIobj::Texture Tcategory, T1, T2, TCPU, Tspawner, Tc1, Tc2, Tc3, Tc4, Tbuildings, Tbackground;

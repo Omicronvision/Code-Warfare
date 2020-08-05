@@ -14,6 +14,7 @@ void MapRes::resetGame()
 	waveSystem.waveNumber = 0;
 	waveSystem.resetWaveChrono();
 	v_takenPos.clear();
+	v_spawners.clear();
 	v_bullets.clear();
 	v_enemies.clear();
 	v_proBuildings.clear();

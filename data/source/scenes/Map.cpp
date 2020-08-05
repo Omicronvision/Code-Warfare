@@ -10,11 +10,18 @@ void Map::loadTileMap(std::string filename)
 {
 	std::string mapData;
 	sf::Vector2f CPU_pos;
-	std::vector<sf::Sprite> v_spawners;
+	std::vector<sf::Vector2f> v_spawners;
 	if(!mapIO.read(filename, mapData, CPU_pos, v_spawners))
 		exit(6);
 	mapData.copy(mapRes.map, mapData.size() + 1);
 	mapRes.map[mapData.size()] = '\0';
+	for (unsigned int i = 0; i < v_spawners.size(); i++)
+	{
+		sf::Sprite spawner;
+		spawner.setTexture(mapRenderer.Tspawner.texture);
+		spawner.setPosition(v_spawners[i]);
+		mapRes.v_spawners.push_back(spawner);
+	}
 	mapRenderer.CPU.setPosition(CPU_pos);
 	mapRes.tilemap.getMap(mapRes.map);
 	mapRes.tilemap.loadTileMap(50, 50);
@@ -25,7 +32,7 @@ void Map::draw(sf::RenderWindow& window, bool paused)
 	window.draw(mapRenderer.background);
 	window.draw(mapRes.tilemap);
 	window.draw(&mapRes.v_vertBuildings[0], mapRes.v_vertBuildings.size(), sf::Quads, &mapRenderer.Tbuildings.texture);
-	mapRenderer.render(window, chosenCategory, chosenBuild, drawBuildInfo);
+	mapRenderer.render(window, chosenCategory, chosenBuild, drawBuildInfo, mapRes.v_spawners);
 
 	if (paused)
 	{

@@ -1,7 +1,7 @@
 #include "MapIO.h"
 
 bool MapIO::write(std::string filename, std::string mapData, sf::Vector2f CPU_pos,
-    std::vector<sf::Sprite> spawners)
+    std::vector<sf::Vector2f> spawners)
 {
     std::ofstream file;
     file.open(filename, std::ios::out | std::ios::binary);
@@ -18,7 +18,11 @@ bool MapIO::write(std::string filename, std::string mapData, sf::Vector2f CPU_po
     file.write((char*)&CPU_pos.y, sizeof(CPU_pos.y));
     // write spawners sprite
     file.write((char*)&spawnersSize, sizeof(spawnersSize));
-    file.write((char*)spawners.data(), spawnersSize * sizeof(sf::Sprite));
+    for (unsigned int i = 0; i < spawners.size(); i++)
+    {
+        file.write((char*)&spawners[i].x, sizeof(spawners[i].x));
+        file.write((char*)&spawners[i].y, sizeof(spawners[i].y));
+    }
 
     file.close();
 
@@ -26,7 +30,7 @@ bool MapIO::write(std::string filename, std::string mapData, sf::Vector2f CPU_po
 }
 
 bool MapIO::read(std::string filename, std::string& mapData, sf::Vector2f& CPU_pos,
-    std::vector<sf::Sprite>& spawners)
+    std::vector<sf::Vector2f>& spawners)
 {
     std::ifstream file;
     file.open(filename, std::ios::in | std::ios::binary);
@@ -42,7 +46,13 @@ bool MapIO::read(std::string filename, std::string& mapData, sf::Vector2f& CPU_p
     file.read((char*)&CPU_pos.y, sizeof(CPU_pos.y));
     // read spawners sprite
     file.read((char*)&spawnersSize, sizeof(spawnersSize));
-    file.read((char*)spawners.data(), spawnersSize * sizeof(sf::Sprite));
+    for (unsigned int i = 0; i < spawnersSize; i++)
+    {
+        sf::Vector2f spawnerPos;
+        spawners.push_back(spawnerPos);
+        file.read((char*)&spawners[i].x, sizeof(spawners[i].x));
+        file.read((char*)&spawners[i].y, sizeof(spawners[i].y));
+    }
 
     file.close();
 

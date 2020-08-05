@@ -22,7 +22,6 @@ bool EnemiesSpawning::readJSON(std::string filename)
 
 	enemyID = root["enemyID"].asInt();
 	enemyScaling = root["enemyScaling"].asInt();
-	initAmount = root["initAmount"].asInt();
 	maxAmount = root["maxAmount"].asInt();
 	spacingTime = root["spacingTime"].asFloat();
 

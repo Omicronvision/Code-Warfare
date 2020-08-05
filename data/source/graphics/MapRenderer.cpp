@@ -92,10 +92,14 @@ void MapRenderer::setPosition(Int32 x, Int32 y, Int32 width, Int32 height)
 	buildingInfo.text.setPosition(sf::Vector2f(infoMenu.rectform.getPosition().x + 2, infoMenu.rectform.getPosition().y + 5));
 }
 
-void MapRenderer::render(sf::RenderWindow& window, Int8 chosenCategory, Int8 chosenBuild, bool drawBuildInfo)
+void MapRenderer::render(sf::RenderWindow& window, Int8 chosenCategory, Int8 chosenBuild, bool drawBuildInfo, std::vector<sf::Sprite> spawners)
 {
 	window.draw(selectedTile.rectform);
 	window.draw(CPU);
+	for (unsigned int i = 0; i < spawners.size(); i++)
+	{
+		window.draw(spawners[i]);
+	}
 	window.draw(buildMenu.rectform);
 	window.draw(category);
 	window.draw(selectedCategory.rectform);
